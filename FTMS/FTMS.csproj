@@ -169,8 +169,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ManageTraineesController.cs" />
+    <Compile Include="Controllers\ManageTrainersController.cs" />
+    <Compile Include="Controllers\StaffsController.cs" />
+    <Compile Include="Controllers\TopicsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -178,13 +184,50 @@
     <Compile Include="Migrations\202010171455133_InitDb.Designer.cs">
       <DependentUpon>202010171455133_InitDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010201732079_CategoryTable.cs" />
+    <Compile Include="Migrations\202010201732079_CategoryTable.Designer.cs">
+      <DependentUpon>202010201732079_CategoryTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010201733027_CourseTable.cs" />
+    <Compile Include="Migrations\202010201733027_CourseTable.Designer.cs">
+      <DependentUpon>202010201733027_CourseTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010201735360_TopicTable.cs" />
+    <Compile Include="Migrations\202010201735360_TopicTable.Designer.cs">
+      <DependentUpon>202010201735360_TopicTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010201737167_AddCategoryIdToCourseTable.cs" />
+    <Compile Include="Migrations\202010201737167_AddCategoryIdToCourseTable.Designer.cs">
+      <DependentUpon>202010201737167_AddCategoryIdToCourseTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010201738230_AddCourseIdToTopicTable.cs" />
+    <Compile Include="Migrations\202010201738230_AddCourseIdToTopicTable.Designer.cs">
+      <DependentUpon>202010201738230_AddCourseIdToTopicTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010201750318_AddTraineeToDb.cs" />
+    <Compile Include="Migrations\202010201750318_AddTraineeToDb.Designer.cs">
+      <DependentUpon>202010201750318_AddTraineeToDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010201752522_AddTrainerToDb.cs" />
+    <Compile Include="Migrations\202010201752522_AddTrainerToDb.Designer.cs">
+      <DependentUpon>202010201752522_AddTrainerToDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\ManageTrainee.cs" />
+    <Compile Include="Models\ManageTrainer.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Topic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CourseCategoryViewModel.cs" />
+    <Compile Include="ViewModels\TopicCourseViewModel.cs" />
+    <Compile Include="ViewModels\TraineeCourseViewModel.cs" />
+    <Compile Include="ViewModels\TrainerTopicViewModel.cs" />
     <Compile Include="ViewModels\UserRoleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +288,20 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Courses\Index.cshtml" />
+    <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Edit.cshtml" />
+    <Content Include="Views\Topics\Index.cshtml" />
+    <Content Include="Views\Topics\Create.cshtml" />
+    <Content Include="Views\Topics\Edit.cshtml" />
+    <Content Include="Views\ManageTrainees\Index.cshtml" />
+    <Content Include="Views\ManageTrainees\Create.cshtml" />
+    <Content Include="Views\ManageTrainers\Index.cshtml" />
+    <Content Include="Views\ManageTrainers\Create.cshtml" />
+    <Content Include="Views\Staffs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -265,6 +322,27 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202010171455133_InitDb.resx">
       <DependentUpon>202010171455133_InitDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010201732079_CategoryTable.resx">
+      <DependentUpon>202010201732079_CategoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010201733027_CourseTable.resx">
+      <DependentUpon>202010201733027_CourseTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010201735360_TopicTable.resx">
+      <DependentUpon>202010201735360_TopicTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010201737167_AddCategoryIdToCourseTable.resx">
+      <DependentUpon>202010201737167_AddCategoryIdToCourseTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010201738230_AddCourseIdToTopicTable.resx">
+      <DependentUpon>202010201738230_AddCourseIdToTopicTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010201750318_AddTraineeToDb.resx">
+      <DependentUpon>202010201750318_AddTraineeToDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010201752522_AddTrainerToDb.resx">
+      <DependentUpon>202010201752522_AddTrainerToDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
